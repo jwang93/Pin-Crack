@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Welcome to Pin Crack!</string>
+    <string name="app_name">Pin Crack</string>
+    <string name="input">Please enter your PIN</string>
+    <string name="input_two">Enter your guessed PIN</string>
+    <string name="cont">Continue</string>
+    <string name="submit">Submit</string>
+    <string name="view_logs">Click here to view the order we guessed your PIN</string>
+    
+
+</resources>
