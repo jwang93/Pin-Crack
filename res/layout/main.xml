@@ -7,12 +7,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_marginBottom="45dp"
-        android:text="@string/hello"
-        android:textSize="45sp"
+        android:layout_marginTop="50dp"
+        android:drawableBottom="@drawable/logo_no_bg"
         android:gravity="center"
-        android:drawableBottom="@drawable/logo" />
+        android:text="@string/hello"
+        android:textSize="45sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/version"
+        android:textColor="@color/Gold"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/button1"
@@ -21,5 +31,21 @@
         android:layout_marginBottom="10dp"
         android:onClick="start"
         android:text="@string/cont" />
+
+    <Button
+        android:id="@+id/button_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:onClick="startAbout"
+        android:text="@string/about" />
+    
+    <Button
+        android:id="@+id/button_how_it_works"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:onClick="startHowItWorks"
+        android:text="@string/how_dialog" />    
 
 </LinearLayout>

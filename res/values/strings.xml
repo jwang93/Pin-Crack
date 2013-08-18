@@ -7,7 +7,13 @@
     <string name="input_two">Enter your guessed PIN</string>
     <string name="cont">Continue</string>
     <string name="submit">Submit</string>
-    <string name="view_logs">Click here to view the order we guessed your PIN</string>
-    
-
+    <string name="view_logs">View the order we guessed your PIN</string>
+    <string name="result_text">Number of tries to crack your PIN:</string>
+    <string name="version">v 1.0</string>
+    <string name="start_over">Try Again</string>
+    <string name="about">About</string>
+    <string name="about_dialog">About The Pin Crack Project</string>
+    <string name="back">Back</string>
+    <string name="how_dialog">How Pin Crack Works</string>
+    	
 </resources>

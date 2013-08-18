@@ -5,12 +5,21 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/result_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:drawableBottom="@drawable/logo"
-        android:gravity="center_vertical"
-        android:textSize="45sp" />
+        android:drawableBottom="@drawable/logo_no_bg"
+        android:gravity="center"
+        android:text="@string/result_text"
+        android:textSize="37sp" />
+
+    <TextView
+        android:id="@+id/result_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="60sp" 
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"/>
 
     <Button
         android:id="@+id/button4"
@@ -20,5 +29,15 @@
         android:layout_marginBottom="10dp"
         android:onClick="start"
         android:text="@string/view_logs" />
+    
+    
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:onClick="startOver"
+        android:text="@string/start_over" />
 
 </LinearLayout>

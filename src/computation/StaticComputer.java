@@ -18,44 +18,44 @@ import android.util.Log;
  * @author Jay Wang
  *
  */
-public class Computer {
+public class StaticComputer {
     
 
-    private int realPin; 
-    private int guessedPin;
+    private static int realPin; 
+    private static int guessedPin;
     
-    private int[] guessedPinDigits = new int[4];
-    public int counter = 0; 
+    private static int[] guessedPinDigits = new int[4];
+    public static int counter = 0; 
+    static String FILENAME = "results.txt";
 
-    private ArrayList<Integer> firstNumber;
-    private ArrayList<Integer> secondNumber;
-    private ArrayList<Integer> thirdNumber;
-    private ArrayList<Integer> fourthNumber;
+    private static ArrayList<Integer> firstNumber;
+    private static ArrayList<Integer> secondNumber;
+    private static ArrayList<Integer> thirdNumber;
+    private static ArrayList<Integer> fourthNumber;
  
-    FileOutputStream fos;
+    static FileOutputStream fos;
     
-    ArrayList<ArrayList<Integer>> master = new ArrayList<ArrayList<Integer>>();
+    static ArrayList<ArrayList<Integer>> master = new ArrayList<ArrayList<Integer>>();
     
-    public Computer (int realPin, int guessedPin, BufferedReader reader, Context context) throws IOException {
-
+    
+    public StaticComputer() {
         
-        String FILENAME = "results.txt";
+    }
+    
+    public static void calculate(int rp, int gp, BufferedReader reader, Context context) throws IOException {
+        
         fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
                 
-        
-        this.realPin = realPin;
-        this.guessedPin = guessedPin;
+        counter = 0;
+        realPin = rp;
+        guessedPin = gp;
         splitPin();
         populateArrayLists(reader);
         firstNumber = master.get(guessedPinDigits[0]);
         secondNumber = master.get(guessedPinDigits[1]);
         thirdNumber = master.get(guessedPinDigits[2]);
         fourthNumber = master.get(guessedPinDigits[3]); 
-//        calculate();
-
-    }
-    
-    public void calculate() throws IOException {
+        
         String result = "";
         for (int i = 0; i < 10; i++) {
             result += firstNumber.get(i).toString();
@@ -86,14 +86,14 @@ public class Computer {
         fos.close();
     }
     
-    private boolean testResult(int guess) {
+    private static boolean testResult(int guess) {
         if (realPin == guess) {
             return true;
         }
         return false;
     }
     
-    private void splitPin() {
+    private static void splitPin() {
         int tempPin = guessedPin;
         int i = 3;
         while (tempPin > 0) {
@@ -103,7 +103,7 @@ public class Computer {
         }
     }
     
-    private void populateArrayLists(BufferedReader reader) throws IOException {
+    private static void populateArrayLists(BufferedReader reader) throws IOException {
         
         String line;
         while ((line = reader.readLine()) != null) {
@@ -112,7 +112,7 @@ public class Computer {
         reader.close();        
     }
     
-    private ArrayList<Integer> processLine (String[] strings) {
+    private static ArrayList<Integer> processLine (String[] strings) {
         ArrayList<Integer> ret = new ArrayList<Integer>();
         for (String str : strings) {
             ret.add(Integer.parseInt(str.trim()));// Exception in this line

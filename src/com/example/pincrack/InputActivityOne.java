@@ -30,6 +30,7 @@ public class InputActivityOne extends Activity {
                 Intent inputIntent = new Intent(InputActivityOne.this, InputActivityTwo.class);
                 inputIntent.putExtra("realPin", truePin);
                 InputActivityOne.this.startActivity(inputIntent);
+                finish();
             }
         });
 

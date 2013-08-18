@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import computation.Computer;
+import computation.StaticComputer;
 import com.example.pincrack.R;
 import android.app.Activity;
 import android.content.Intent;
@@ -45,10 +46,13 @@ public class InputActivityTwo extends Activity {
                 try {
                     inputStream = getAssets().open("orderings.txt");
                     reader = new BufferedReader(new InputStreamReader(inputStream));
-                    computer = new Computer(Integer.parseInt(truePin), Integer.parseInt(guessedPin), reader, getApplicationContext());
+//                    computer = new Computer(Integer.parseInt(truePin), Integer.parseInt(guessedPin), reader, getApplicationContext());
+//                    computer.calculate();
+                    StaticComputer.calculate(Integer.parseInt(truePin), Integer.parseInt(guessedPin), reader, getApplicationContext());
                     Intent resultIntent = new Intent(InputActivityTwo.this, ResultActivity.class);
-                    resultIntent.putExtra("counter", computer.counter);
+                    resultIntent.putExtra("counter", StaticComputer.counter);
                     InputActivityTwo.this.startActivity(resultIntent);
+                    finish();
                 }
                 catch (IOException e) {
                     e.printStackTrace();

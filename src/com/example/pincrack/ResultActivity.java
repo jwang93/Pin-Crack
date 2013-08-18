@@ -4,6 +4,7 @@ import com.example.pincrack.R;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,8 +23,10 @@ public class ResultActivity extends Activity {
         Bundle intentInfo = getIntent().getExtras();
         counter = intentInfo.getInt("counter");
         
-        TextView resultView = (TextView) findViewById(R.id.result_text);
+        TextView resultView = (TextView) findViewById(R.id.result_number);
         resultView.setText(String.valueOf(counter));
+        resultView.setTextColor(getTextColor(counter));
+        
         
         Button submit = (Button) findViewById(R.id.button4);
         submit.setOnClickListener(new View.OnClickListener()
@@ -34,5 +37,19 @@ public class ResultActivity extends Activity {
                 ResultActivity.this.startActivity(viewLogs);
             }
         });
+    }
+    private int getTextColor (int counter) {
+        if (counter > 1000) {
+            return Color.RED;
+        } else if (counter > 100) {
+            return Color.YELLOW;
+        }
+        return Color.GREEN;
+    }
+    
+    public void startOver (View view) {
+        Intent startOver = new Intent(ResultActivity.this, InputActivityOne.class);
+        ResultActivity.this.startActivity(startOver);
+        finish();
     }
 }
