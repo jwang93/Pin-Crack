@@ -57,7 +57,7 @@ public class ViewLogsActivity extends Activity {
             e.printStackTrace();
         }
         String[] values = data.split(",");
-        
+        Log.i("values SIZE:", ""+values.length);
         @SuppressWarnings({ "rawtypes", "unchecked" })
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, values);
         view.setAdapter(adapter);

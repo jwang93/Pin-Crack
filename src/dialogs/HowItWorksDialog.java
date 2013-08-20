@@ -1,5 +1,7 @@
-package com.example.pincrack;
+package dialogs;
 
+import com.example.pincrack.R;
+import com.example.pincrack.R.string;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,12 +9,14 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.widget.TextView;
 
 
 @SuppressLint("NewApi")
 public class HowItWorksDialog extends DialogFragment {
     
-    private final String howItWorksString = "<b>Application:</b><br/> This app is a" +
+    private final String howItWorksString = "<br/><b>Application:</b><br/> This app is a" +
     		" fun tool to let you see (1) how hard your PIN is to crack, and (2) how good you" +
     		" are at discreetly entering in your PIN. <br/><br/>" +
     		"<b>Three main screens:</b><br/>" +
@@ -24,10 +28,13 @@ public class HowItWorksDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
-                        
+               
+        TextView text = (TextView) View.inflate(getActivity(), R.layout.text_view, null);
+        text.setText(Html.fromHtml(howItWorksString));
+        
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.how_dialog)
-                .setMessage(Html.fromHtml(howItWorksString))
+                .setView(text)
                 .setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User cancelled the dialog

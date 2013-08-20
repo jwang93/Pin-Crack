@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import computation.Computer;
 import computation.StaticComputer;
 import com.example.pincrack.R;
+import dialogs.PINValidatorDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -44,21 +45,39 @@ public class InputActivityTwo extends Activity {
                 setPin(pin.getText().toString());
                 InputStream inputStream;
                 try {
-                    inputStream = getAssets().open("orderings.txt");
-                    reader = new BufferedReader(new InputStreamReader(inputStream));
-//                    computer = new Computer(Integer.parseInt(truePin), Integer.parseInt(guessedPin), reader, getApplicationContext());
-//                    computer.calculate();
-                    StaticComputer.calculate(Integer.parseInt(truePin), Integer.parseInt(guessedPin), reader, getApplicationContext());
-                    Intent resultIntent = new Intent(InputActivityTwo.this, ResultActivity.class);
-                    resultIntent.putExtra("counter", StaticComputer.counter);
-                    InputActivityTwo.this.startActivity(resultIntent);
-                    finish();
+
+                    if (validationPassed(pin.getText().toString())) {
+                        inputStream = getAssets().open("orderings.txt");
+                        reader = new BufferedReader(new InputStreamReader(inputStream));
+                        // computer = new Computer(Integer.parseInt(truePin),
+                        // Integer.parseInt(guessedPin), reader, getApplicationContext());
+                        // computer.calculate();
+                        StaticComputer.calculate_updated(Integer.parseInt(truePin),
+                                                 Integer.parseInt(guessedPin), reader,
+                                                 getApplicationContext());
+                        Log.i("used SIZE:", ""+StaticComputer.used.size());
+
+                        Intent resultIntent =
+                                new Intent(InputActivityTwo.this, ResultActivity.class);
+                        resultIntent.putExtra("counter", StaticComputer.counter);
+                        InputActivityTwo.this.startActivity(resultIntent);
+                        finish();
+                    }
+                    else {
+                        PINValidatorDialog dialog = new PINValidatorDialog();
+                        dialog.show(getFragmentManager(), "error Dialog");
+                    }
                 }
                 catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    protected boolean validationPassed (String string) {
+        if (string.length() == 4) return true;
+        return false;
     }
 
     private void setPin (String pin) {

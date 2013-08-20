@@ -7,28 +7,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="50dp"
+        android:drawablePadding="20dp"
         android:drawableBottom="@drawable/logo_no_bg"
         android:gravity="center"
         android:text="@string/hello"
         android:textSize="45sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/version"
-        android:textColor="@color/Gold"
-        android:textSize="20sp"
-        android:textStyle="italic" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="start"
         android:text="@string/cont" />
 
@@ -37,15 +32,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="startAbout"
         android:text="@string/about" />
-    
+
     <Button
         android:id="@+id/button_how_it_works"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="startHowItWorks"
-        android:text="@string/how_dialog" />    
+        android:text="@string/how_dialog" />
 
 </LinearLayout>

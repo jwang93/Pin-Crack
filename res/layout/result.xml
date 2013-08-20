@@ -7,7 +7,6 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:drawableBottom="@drawable/logo_no_bg"
         android:gravity="center"
         android:text="@string/result_text"
         android:textSize="37sp" />
@@ -16,10 +15,12 @@
         android:id="@+id/result_number"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:drawableBottom="@drawable/logo_no_bg"
         android:gravity="center"
-        android:textSize="60sp" 
-        android:paddingTop="20dp"
-        android:paddingBottom="30dp"/>
+        android:paddingBottom="30dp"
+        android:drawablePadding="20dp"
+        android:paddingTop="15dp"
+        android:textSize="60sp" />
 
     <Button
         android:id="@+id/button4"
@@ -29,8 +30,7 @@
         android:layout_marginBottom="10dp"
         android:onClick="start"
         android:text="@string/view_logs" />
-    
-    
+
     <Button
         android:id="@+id/button_home"
         android:layout_width="match_parent"
