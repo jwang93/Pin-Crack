@@ -29,4 +29,5 @@ proguard/
 *.iws
 .idea/
 
+.settings
 .DS_Store
