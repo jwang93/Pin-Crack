@@ -16,7 +16,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="10dp" >
 
         <EditText
             android:id="@+id/phone_dialer1"
@@ -57,7 +58,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="10dp" >
 
         <EditText
             android:id="@+id/phone_dialer2"
@@ -98,7 +100,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="10dp" >
 
         <EditText
             android:id="@+id/phone_dialer3"
@@ -139,7 +142,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="30dp" >
 
         <EditText
             android:id="@+id/phone_dialer4"

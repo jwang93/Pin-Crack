@@ -7,7 +7,7 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logo_v2"
         android:label="@string/app_name"
         android:theme="@style/PinCrack" >
         <activity
