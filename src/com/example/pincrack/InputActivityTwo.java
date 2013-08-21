@@ -35,19 +35,18 @@ public class InputActivityTwo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_two);
 
-        final EditText pin = (EditText) findViewById(R.id.phone_dialer);
+        final EditText pin1 = (EditText) findViewById(R.id.phone_dialer1);
 
         SeekBar confidence = (SeekBar) findViewById(R.id.seek1);
-        final TextView confidence_text = (TextView) findViewById(R.id.confidence_text);
+        final TextView confidence_text = (TextView) findViewById(R.id.confidence_text1);
         confidence_text.setText("Confidence: 0");
-        
+                
         confidence.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             int progressChanged = 0;
  
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 progressChanged = progress;
                 confidence_text.setText("Confidence: " + progressChanged);
-                Log.e("progress: ", ""+progressChanged);
             }
 
 			@Override
@@ -59,6 +58,81 @@ public class InputActivityTwo extends Activity {
 			}
         });
         
+        final EditText pin2 = (EditText) findViewById(R.id.phone_dialer2);
+
+        SeekBar confidence2 = (SeekBar) findViewById(R.id.seek2);
+        final TextView confidence_text2 = (TextView) findViewById(R.id.confidence_text2);
+        confidence_text2.setText("Confidence: 0");
+        
+        confidence2.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progressChanged = 0;
+ 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                progressChanged = progress;
+                confidence_text2.setText("Confidence: " + progressChanged);
+            }
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {				
+			}
+        });
+
+        final EditText pin3 = (EditText) findViewById(R.id.phone_dialer3);
+
+        SeekBar confidence3 = (SeekBar) findViewById(R.id.seek3);
+        final TextView confidence_text3 = (TextView) findViewById(R.id.confidence_text3);
+        confidence_text3.setText("Confidence: 0");
+        
+        confidence3.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progressChanged = 0;
+ 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                progressChanged = progress;
+                confidence_text3.setText("Confidence: " + progressChanged);
+            }
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {				
+			}
+        });
+        
+        final EditText pin4 = (EditText) findViewById(R.id.phone_dialer4);
+
+        SeekBar confidence4 = (SeekBar) findViewById(R.id.seek4);
+        final TextView confidence_text4 = (TextView) findViewById(R.id.confidence_text4);
+        confidence_text4.setText("Confidence: 0");
+        
+        confidence4.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progressChanged = 0;
+ 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                progressChanged = progress;
+                confidence_text4.setText("Confidence: " + progressChanged);
+            }
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {				
+			}
+        });
+        
+        
+        
+        
+    
+        
+		
         Bundle intentInfo = getIntent().getExtras();
         truePin = intentInfo.getString("realPin");
 
@@ -67,11 +141,12 @@ public class InputActivityTwo extends Activity {
         {
             public void onClick (View v)
             {
-                setPin(pin.getText().toString());
                 InputStream inputStream;
                 try {
-
-                    if (validationPassed(pin.getText().toString())) {
+            		final String pin = pin1.getText().toString() + pin2.getText().toString()
+            				+ pin3.getText().toString() + pin4.getText().toString();    
+                    if (validationPassed(pin)) {
+                        setPin(pin);
                         inputStream = getAssets().open("orderings.txt");
                         reader = new BufferedReader(new InputStreamReader(inputStream));
                         // computer = new Computer(Integer.parseInt(truePin),

@@ -20,7 +20,8 @@
         android:gravity="center"
         android:inputType="phone"
         android:password="true"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:maxLength="4" />
 
     <Button
         android:id="@+id/button2"

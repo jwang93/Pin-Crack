@@ -19,14 +19,14 @@
         android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/phone_dialer"
+            android:id="@+id/phone_dialer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="2"
             android:gravity="center"
             android:inputType="phone"
+            android:maxLength="1"
             android:paddingBottom="20dp"
-            android:password="true"
             android:textSize="50sp" />
 
         <LinearLayout
@@ -35,7 +35,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/confidence_text"
+                android:id="@+id/confidence_text1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -54,13 +54,135 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/phone_dialer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:gravity="center"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:paddingBottom="20dp"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/confidence_text2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seek2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:max="10"
+                android:paddingLeft="15dp"
+                android:progress="0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/phone_dialer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:gravity="center"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:paddingBottom="20dp"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/confidence_text3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seek3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:max="10"
+                android:paddingLeft="15dp"
+                android:progress="0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/phone_dialer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:gravity="center"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:paddingBottom="20dp"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/confidence_text4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seek4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:max="10"
+                android:paddingLeft="15dp"
+                android:progress="0" />
+        </LinearLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="10dp"
-        android:onClick="start"
         android:text="@string/submit" />
 
 </LinearLayout>
