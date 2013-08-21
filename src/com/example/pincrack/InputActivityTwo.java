@@ -17,6 +17,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 
 public class InputActivityTwo extends Activity {
@@ -34,6 +37,28 @@ public class InputActivityTwo extends Activity {
 
         final EditText pin = (EditText) findViewById(R.id.phone_dialer);
 
+        SeekBar confidence = (SeekBar) findViewById(R.id.seek1);
+        final TextView confidence_text = (TextView) findViewById(R.id.confidence_text);
+        confidence_text.setText("Confidence: 0");
+        
+        confidence.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progressChanged = 0;
+ 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                progressChanged = progress;
+                confidence_text.setText("Confidence: " + progressChanged);
+                Log.e("progress: ", ""+progressChanged);
+            }
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {				
+			}
+        });
+        
         Bundle intentInfo = getIntent().getExtras();
         truePin = intentInfo.getString("realPin");
 

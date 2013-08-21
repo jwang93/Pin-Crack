@@ -13,14 +13,46 @@
         android:text="@string/input_two"
         android:textSize="40sp" />
 
-    <EditText
-        android:id="@+id/phone_dialer"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:inputType="phone"
-        android:password="true"
-        android:textSize="50sp" />
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/phone_dialer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:gravity="center"
+            android:inputType="phone"
+            android:paddingBottom="20dp"
+            android:password="true"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/confidence_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seek1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:max="10"
+                android:paddingLeft="15dp"
+                android:progress="0" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
