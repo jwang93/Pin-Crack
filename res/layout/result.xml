@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/result_text"
-        android:textSize="37sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/result_number"

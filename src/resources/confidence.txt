@@ -1,0 +1,14 @@
+
+
+confidence = 9-10
+we test only that one value 
+
+confidence = 6-8
+test 3 values 
+
+confidence 3-5
+test 5 values
+
+confidence = 0
+we test all 10 values 
+

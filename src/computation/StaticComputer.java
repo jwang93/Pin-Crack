@@ -40,10 +40,11 @@ public class StaticComputer {
     
     static ArrayList<ArrayList<Integer>> master = new ArrayList<ArrayList<Integer>>();
     
+    private static int firstIncrement;
+    private static int secondIncrement;
+    private static int thirdIncrement;
+    private static int fourthIncrement;
     
-    public StaticComputer() {
-        
-    }
     
     public static void calculate(int rp, int gp, BufferedReader reader, Context context) throws IOException {
         
@@ -89,8 +90,34 @@ public class StaticComputer {
         fos.close();
     }
     
+    private static int getIncrement(int confidence) {
+    	if (confidence >= 9) {
+    		return 1;
+    	} else if (confidence >= 5) {
+    		return 4;
+    	} else if (confidence >= 3) {
+    		return 7;
+    	} else {
+    		return 10;
+    	}
+    }
     
-    public static void calculate_updated(int rp, int gp, BufferedReader reader, Context context) throws IOException {
+    private static void increment() {
+    	if (firstIncrement < 10) {
+    		firstIncrement++;
+    	}
+    	if (secondIncrement < 10) {
+    		secondIncrement++;
+    	}
+    	if (thirdIncrement < 10) {
+    		thirdIncrement++;
+    	}
+    	if (fourthIncrement < 10) {
+    		fourthIncrement++;
+    	}
+    }
+    
+    public static void calculate_updated(int rp, int gp, BufferedReader reader, Context context, int[] confidence) throws IOException {
         
         fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             
@@ -107,23 +134,28 @@ public class StaticComputer {
         fourthNumber = master.get(guessedPinDigits[3]); 
         used.clear();
 
+        firstIncrement = getIncrement(confidence[0]);
+        secondIncrement = getIncrement(confidence[1]);
+        thirdIncrement = getIncrement(confidence[2]);
+        fourthIncrement = getIncrement(confidence[3]);
+        
+        
         String result = "";
-        int increment = 0;
         counter = 0;
         while (used.size() < 10000) {
-            increment++;
-            for (int i = 0; i < increment; i++) {
+        	increment();
+        	for (int i = 0; i < firstIncrement; i++) {
                 result += firstNumber.get(i).toString();
-                for (int j = 0; j < increment; j++) {
+                for (int j = 0; j < secondIncrement; j++) {
                     result += secondNumber.get(j).toString();
-                    for (int k = 0; k < increment; k++) {
+                    for (int k = 0; k < thirdIncrement; k++) {
                         result += thirdNumber.get(k).toString();
-                        for (int l = 0; l < increment; l++) {
+                        for (int l = 0; l < fourthIncrement; l++) {
                             result += fourthNumber.get(l).toString();
                             if (!used.contains(Integer.parseInt(result))) {
                                 counter++;
                                 if (testResult(Integer.parseInt(result))) {
-                                    String output = "**" + result + "**";
+                                    String output = result;
                                     fos.write(output.getBytes());
                                     return;
                                 }

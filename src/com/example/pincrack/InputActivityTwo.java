@@ -35,6 +35,8 @@ public class InputActivityTwo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_two);
 
+        final int[] confidence_array = new int[4];
+        
         final EditText pin1 = (EditText) findViewById(R.id.phone_dialer1);
 
         SeekBar confidence = (SeekBar) findViewById(R.id.seek1);
@@ -42,11 +44,10 @@ public class InputActivityTwo extends Activity {
         confidence_text.setText("Confidence: 0");
                 
         confidence.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            int progressChanged = 0;
  
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-                confidence_text.setText("Confidence: " + progressChanged);
+                confidence_text.setText("Confidence: " + progress);
+                confidence_array[0] = progress;
             }
 
 			@Override
@@ -65,11 +66,10 @@ public class InputActivityTwo extends Activity {
         confidence_text2.setText("Confidence: 0");
         
         confidence2.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            int progressChanged = 0;
  
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-                confidence_text2.setText("Confidence: " + progressChanged);
+                confidence_text2.setText("Confidence: " + progress);
+                confidence_array[1] = progress;
             }
 
 			@Override
@@ -88,11 +88,10 @@ public class InputActivityTwo extends Activity {
         confidence_text3.setText("Confidence: 0");
         
         confidence3.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            int progressChanged = 0;
  
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-                confidence_text3.setText("Confidence: " + progressChanged);
+                confidence_text3.setText("Confidence: " + progress);
+                confidence_array[2] = progress;
             }
 
 			@Override
@@ -111,11 +110,10 @@ public class InputActivityTwo extends Activity {
         confidence_text4.setText("Confidence: 0");
         
         confidence4.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            int progressChanged = 0;
  
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-                confidence_text4.setText("Confidence: " + progressChanged);
+                confidence_text4.setText("Confidence: " + progress);
+                confidence_array[3] = progress;
             }
 
 			@Override
@@ -154,7 +152,8 @@ public class InputActivityTwo extends Activity {
                         // computer.calculate();
                         StaticComputer.calculate_updated(Integer.parseInt(truePin),
                                                  Integer.parseInt(guessedPin), reader,
-                                                 getApplicationContext());
+                                                 getApplicationContext(),
+                                                 confidence_array);
                         Log.i("used SIZE:", ""+StaticComputer.used.size());
 
                         Intent resultIntent =
