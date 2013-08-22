@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 
@@ -29,12 +30,15 @@ public class HowItWorksDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
                
-        TextView text = (TextView) View.inflate(getActivity(), R.layout.text_view, null);
-        text.setText(Html.fromHtml(howItWorksString));
-        
+		ScrollView scrollView = (ScrollView) View.inflate(getActivity(), R.layout.scroll_view, null);
+		TextView text = (TextView) View.inflate(getActivity(), R.layout.text_view, null);
+		text.setText(Html.fromHtml(howItWorksString));
+		scrollView.addView(text);
+		
+		
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.how_dialog)
-                .setView(text)
+                .setView(scrollView)
                 .setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User cancelled the dialog

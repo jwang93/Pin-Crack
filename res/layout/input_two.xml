@@ -7,17 +7,17 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:paddingBottom="25dp"
+        android:paddingBottom="15dp"
         android:text="@string/input_two"
-        android:textSize="40sp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="10dp" >
+        android:paddingBottom="5dp" >
 
         <EditText
             android:id="@+id/phone_dialer1"
@@ -28,7 +28,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="50sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -42,7 +42,7 @@
                 android:gravity="right"
                 android:paddingRight="30dp"
                 android:paddingTop="10dp"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <SeekBar
                 android:id="@+id/seek1"
@@ -59,7 +59,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="10dp" >
+        android:paddingBottom="5dp" >
 
         <EditText
             android:id="@+id/phone_dialer2"
@@ -70,7 +70,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="50sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -84,7 +84,7 @@
                 android:gravity="right"
                 android:paddingRight="30dp"
                 android:paddingTop="10dp"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <SeekBar
                 android:id="@+id/seek2"
@@ -101,7 +101,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="10dp" >
+        android:paddingBottom="5dp" >
 
         <EditText
             android:id="@+id/phone_dialer3"
@@ -112,7 +112,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="50sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -126,7 +126,7 @@
                 android:gravity="right"
                 android:paddingRight="30dp"
                 android:paddingTop="10dp"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <SeekBar
                 android:id="@+id/seek3"
@@ -143,7 +143,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="30dp" >
+        android:paddingBottom="10dp" >
 
         <EditText
             android:id="@+id/phone_dialer4"
@@ -154,7 +154,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="50sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -168,7 +168,7 @@
                 android:gravity="right"
                 android:paddingRight="30dp"
                 android:paddingTop="10dp"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <SeekBar
                 android:id="@+id/seek4"
