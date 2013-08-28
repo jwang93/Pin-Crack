@@ -4,14 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
 import computation.Computer;
-import computation.StaticComputer;
 import com.example.pincrack.R;
 import dialogs.PINValidatorDialog;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +24,6 @@ public class InputActivityTwo extends Activity {
 
     String guessedPin;
     String truePin;
-    Computer computer;
     BufferedReader reader;
 
     @Override
@@ -147,18 +143,14 @@ public class InputActivityTwo extends Activity {
                         setPin(pin);
                         inputStream = getAssets().open("orderings.txt");
                         reader = new BufferedReader(new InputStreamReader(inputStream));
-                        // computer = new Computer(Integer.parseInt(truePin),
-                        // Integer.parseInt(guessedPin), reader, getApplicationContext());
-                        // computer.calculate();
-                        StaticComputer.calculate_updated(Integer.parseInt(truePin),
+                        int result = Computer.calculate(Integer.parseInt(truePin),
                                                  Integer.parseInt(guessedPin), reader,
                                                  getApplicationContext(),
                                                  confidence_array);
-                        Log.i("used SIZE:", ""+StaticComputer.used.size());
 
                         Intent resultIntent =
                                 new Intent(InputActivityTwo.this, ResultActivity.class);
-                        resultIntent.putExtra("counter", StaticComputer.counter);
+                        resultIntent.putExtra("counter", result);
                         InputActivityTwo.this.startActivity(resultIntent);
                         finish();
                     }
