@@ -4,7 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 import computation.Computer;
+import computation.Digit;
+
 import com.example.pincrack.R;
 import dialogs.PINValidatorDialog;
 import android.app.Activity;
@@ -34,97 +41,47 @@ public class InputActivityTwo extends Activity {
         final int[] confidence_array = new int[4];
         
         final EditText pin1 = (EditText) findViewById(R.id.phone_dialer1);
-
-        SeekBar confidence = (SeekBar) findViewById(R.id.seek1);
-        final TextView confidence_text = (TextView) findViewById(R.id.confidence_text1);
-        confidence_text.setText("Confidence: 0");
-                
-        confidence.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
- 
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                confidence_text.setText("Confidence: " + progress);
-                confidence_array[0] = progress;
-            }
-
-			@Override
-			public void onStartTrackingTouch(SeekBar arg0) {				
-			}
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {				
-			}
-        });
-        
         final EditText pin2 = (EditText) findViewById(R.id.phone_dialer2);
-
-        SeekBar confidence2 = (SeekBar) findViewById(R.id.seek2);
-        final TextView confidence_text2 = (TextView) findViewById(R.id.confidence_text2);
-        confidence_text2.setText("Confidence: 0");
-        
-        confidence2.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
- 
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                confidence_text2.setText("Confidence: " + progress);
-                confidence_array[1] = progress;
-            }
-
-			@Override
-			public void onStartTrackingTouch(SeekBar arg0) {				
-			}
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {				
-			}
-        });
-
         final EditText pin3 = (EditText) findViewById(R.id.phone_dialer3);
-
-        SeekBar confidence3 = (SeekBar) findViewById(R.id.seek3);
-        final TextView confidence_text3 = (TextView) findViewById(R.id.confidence_text3);
-        confidence_text3.setText("Confidence: 0");
-        
-        confidence3.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
- 
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                confidence_text3.setText("Confidence: " + progress);
-                confidence_array[2] = progress;
-            }
-
-			@Override
-			public void onStartTrackingTouch(SeekBar arg0) {				
-			}
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {				
-			}
-        });
-        
         final EditText pin4 = (EditText) findViewById(R.id.phone_dialer4);
 
+        SeekBar confidence1 = (SeekBar) findViewById(R.id.seek1);
+        SeekBar confidence2 = (SeekBar) findViewById(R.id.seek2);
+        SeekBar confidence3 = (SeekBar) findViewById(R.id.seek3);
         SeekBar confidence4 = (SeekBar) findViewById(R.id.seek4);
+
+        final TextView confidence_text1 = (TextView) findViewById(R.id.confidence_text1);
+        final TextView confidence_text2 = (TextView) findViewById(R.id.confidence_text2);
+        final TextView confidence_text3 = (TextView) findViewById(R.id.confidence_text3);
         final TextView confidence_text4 = (TextView) findViewById(R.id.confidence_text4);
-        confidence_text4.setText("Confidence: 0");
-        
-        confidence4.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
- 
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                confidence_text4.setText("Confidence: " + progress);
-                confidence_array[3] = progress;
-            }
 
-			@Override
-			public void onStartTrackingTouch(SeekBar arg0) {				
-			}
+        
+        final Digit digit1 = new Digit((EditText) findViewById(R.id.phone_dialer1), (SeekBar) findViewById(R.id.seek1), (TextView) findViewById(R.id.confidence_text1));
+        final Digit digit2 = new Digit(pin2, confidence2, confidence_text2);
+        final Digit digit3 = new Digit(pin3, confidence3, confidence_text3);
+        final Digit digit4 = new Digit(pin4, confidence4, confidence_text4);
+        
+        List<Digit> digits = Arrays.asList(digit1, digit2, digit3, digit4);
+        
+        
+        
+        
+        for (final Digit digit : digits) {
+        	digit.getTextView().setText("Confidence: 0");
+            digit.getSeekBar().setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            	 
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                    digit.getTextView().setText("Confidence: " + progress);
+                    confidence_array[0] = progress;
+                }
 
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {				
-			}
-        });
-        
-        
-        
-        
-    
+    			@Override
+    			public void onStartTrackingTouch(SeekBar arg0) {}
+
+    			@Override
+    			public void onStopTrackingTouch(SeekBar seekBar) {}
+            });
+        }
         
 		
         Bundle intentInfo = getIntent().getExtras();
@@ -137,8 +94,8 @@ public class InputActivityTwo extends Activity {
             {
                 InputStream inputStream;
                 try {
-            		final String pin = pin1.getText().toString() + pin2.getText().toString()
-            				+ pin3.getText().toString() + pin4.getText().toString();    
+            		final String pin = digit1.getEditText().getText().toString() + digit2.getEditText().getText().toString()
+            				+ digit3.getEditText().getText().toString() + digit4.getEditText().getText().toString();    
                     if (validationPassed(pin)) {
                         setPin(pin);
                         inputStream = getAssets().open("orderings.txt");
@@ -173,6 +130,5 @@ public class InputActivityTwo extends Activity {
 
     private void setPin (String pin) {
         guessedPin = pin;
-        Log.e("Value: ", guessedPin);
     }
 }
