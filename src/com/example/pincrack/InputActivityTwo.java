@@ -25,46 +25,27 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-
+/**
+ * This activity is used to receive and process the user input (PIN).
+ * It then issues the call to the Computer to guess the PIN. 
+ * @author Jay Wang
+ */
 public class InputActivityTwo extends Activity {
-    /** Called when the activity is first created. */
-
-    String guessedPin;
-    String truePin;
-    BufferedReader reader;
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_two);
 
-        final int[] confidence_array = new int[4];
+        Bundle intentInfo = getIntent().getExtras();
+        final String truePin = intentInfo.getString("realPin");
         
-        final EditText pin1 = (EditText) findViewById(R.id.phone_dialer1);
-        final EditText pin2 = (EditText) findViewById(R.id.phone_dialer2);
-        final EditText pin3 = (EditText) findViewById(R.id.phone_dialer3);
-        final EditText pin4 = (EditText) findViewById(R.id.phone_dialer4);
-
-        SeekBar confidence1 = (SeekBar) findViewById(R.id.seek1);
-        SeekBar confidence2 = (SeekBar) findViewById(R.id.seek2);
-        SeekBar confidence3 = (SeekBar) findViewById(R.id.seek3);
-        SeekBar confidence4 = (SeekBar) findViewById(R.id.seek4);
-
-        final TextView confidence_text1 = (TextView) findViewById(R.id.confidence_text1);
-        final TextView confidence_text2 = (TextView) findViewById(R.id.confidence_text2);
-        final TextView confidence_text3 = (TextView) findViewById(R.id.confidence_text3);
-        final TextView confidence_text4 = (TextView) findViewById(R.id.confidence_text4);
-
-        
+        final int[] confidence_array = new int[4];        
         final Digit digit1 = new Digit((EditText) findViewById(R.id.phone_dialer1), (SeekBar) findViewById(R.id.seek1), (TextView) findViewById(R.id.confidence_text1));
-        final Digit digit2 = new Digit(pin2, confidence2, confidence_text2);
-        final Digit digit3 = new Digit(pin3, confidence3, confidence_text3);
-        final Digit digit4 = new Digit(pin4, confidence4, confidence_text4);
-        
-        List<Digit> digits = Arrays.asList(digit1, digit2, digit3, digit4);
-        
-        
-        
+        final Digit digit2 = new Digit((EditText) findViewById(R.id.phone_dialer2), (SeekBar) findViewById(R.id.seek2), (TextView) findViewById(R.id.confidence_text2));
+        final Digit digit3 = new Digit((EditText) findViewById(R.id.phone_dialer3), (SeekBar) findViewById(R.id.seek3), (TextView) findViewById(R.id.confidence_text3));
+        final Digit digit4 = new Digit((EditText) findViewById(R.id.phone_dialer4), (SeekBar) findViewById(R.id.seek4), (TextView) findViewById(R.id.confidence_text4));
+        final List<Digit> digits = Arrays.asList(digit1, digit2, digit3, digit4);
         
         for (final Digit digit : digits) {
         	digit.getTextView().setText("Confidence: 0");
@@ -83,10 +64,6 @@ public class InputActivityTwo extends Activity {
             });
         }
         
-		
-        Bundle intentInfo = getIntent().getExtras();
-        truePin = intentInfo.getString("realPin");
-
         Button submit = (Button) findViewById(R.id.button3);
         submit.setOnClickListener(new View.OnClickListener()
         {
@@ -94,12 +71,14 @@ public class InputActivityTwo extends Activity {
             {
                 InputStream inputStream;
                 try {
-            		final String pin = digit1.getEditText().getText().toString() + digit2.getEditText().getText().toString()
-            				+ digit3.getEditText().getText().toString() + digit4.getEditText().getText().toString();    
-                    if (validationPassed(pin)) {
-                        setPin(pin);
+            		final String guessedPin = digits.get(0).getEditText().getText().toString() + 
+            						   digits.get(1).getEditText().getText().toString() + 
+            						   digits.get(2).getEditText().getText().toString() + 
+            						   digits.get(3).getEditText().getText().toString();  
+            		
+                    if (validationPassed(guessedPin)) {
                         inputStream = getAssets().open("orderings.txt");
-                        reader = new BufferedReader(new InputStreamReader(inputStream));
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                         int result = Computer.calculate(Integer.parseInt(truePin),
                                                  Integer.parseInt(guessedPin), reader,
                                                  getApplicationContext(),
@@ -123,12 +102,12 @@ public class InputActivityTwo extends Activity {
         });
     }
 
+    /**
+     * Helper method used to validate the PIN is 4 digits long
+     */
     protected boolean validationPassed (String string) {
         if (string.length() == 4) return true;
         return false;
     }
 
-    private void setPin (String pin) {
-        guessedPin = pin;
-    }
 }
