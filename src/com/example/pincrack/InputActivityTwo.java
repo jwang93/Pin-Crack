@@ -28,6 +28,7 @@ import android.widget.TextView;
 /**
  * This activity is used to receive and process the user input (PIN).
  * It then issues the call to the Computer to guess the PIN. 
+ * 
  * @author Jay Wang
  */
 public class InputActivityTwo extends Activity {
@@ -47,22 +48,7 @@ public class InputActivityTwo extends Activity {
         final Digit digit4 = new Digit((EditText) findViewById(R.id.phone_dialer4), (SeekBar) findViewById(R.id.seek4), (TextView) findViewById(R.id.confidence_text4));
         final List<Digit> digits = Arrays.asList(digit1, digit2, digit3, digit4);
         
-        for (final Digit digit : digits) {
-        	digit.getTextView().setText("Confidence: 0");
-            digit.getSeekBar().setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            	 
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                    digit.getTextView().setText("Confidence: " + progress);
-                    confidence_array[0] = progress;
-                }
-
-    			@Override
-    			public void onStartTrackingTouch(SeekBar arg0) {}
-
-    			@Override
-    			public void onStopTrackingTouch(SeekBar seekBar) {}
-            });
-        }
+        setConfidence(digits, confidence_array);
         
         Button submit = (Button) findViewById(R.id.button3);
         submit.setOnClickListener(new View.OnClickListener()
@@ -71,10 +57,7 @@ public class InputActivityTwo extends Activity {
             {
                 InputStream inputStream;
                 try {
-            		final String guessedPin = digits.get(0).getEditText().getText().toString() + 
-            						   digits.get(1).getEditText().getText().toString() + 
-            						   digits.get(2).getEditText().getText().toString() + 
-            						   digits.get(3).getEditText().getText().toString();  
+            		final String guessedPin = concatenateGuesses(digits);
             		
                     if (validationPassed(guessedPin)) {
                         inputStream = getAssets().open("orderings.txt");
@@ -109,5 +92,37 @@ public class InputActivityTwo extends Activity {
         if (string.length() == 4) return true;
         return false;
     }
+    
+    /**
+     * Helper method that handles the confidence for each digit of the user-guessed PIN
+     */
+    private void setConfidence(List<Digit> digits, final int[] confidence_array) {
+        for (final Digit digit : digits) {
+        	digit.getTextView().setText("Confidence: 0");
+            digit.getSeekBar().setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            	 
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                    digit.getTextView().setText("Confidence: " + progress);
+                    confidence_array[0] = progress;
+                }
+
+    			@Override
+    			public void onStartTrackingTouch(SeekBar arg0) {}
+
+    			@Override
+    			public void onStopTrackingTouch(SeekBar seekBar) {}
+            });
+        }
+    }
+    
+    /**
+     * Concatenate the four individual digits into one string
+     */
+	private String concatenateGuesses(List<Digit> digits) {
+		return digits.get(0).getEditText().getText().toString()
+				+ digits.get(1).getEditText().getText().toString()
+				+ digits.get(2).getEditText().getText().toString()
+				+ digits.get(3).getEditText().getText().toString();
+	}
 
 }
