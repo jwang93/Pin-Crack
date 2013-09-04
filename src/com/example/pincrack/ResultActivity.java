@@ -2,7 +2,6 @@ package com.example.pincrack;
 
 import com.example.pincrack.R;
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,14 +18,12 @@ public class ResultActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
-        
         Bundle intentInfo = getIntent().getExtras();
         counter = intentInfo.getInt("counter");
         
         TextView resultView = (TextView) findViewById(R.id.result_number);
         resultView.setText(String.valueOf(counter));
         resultView.setTextColor(getTextColor(counter));
-        
         
         Button submit = (Button) findViewById(R.id.button4);
         submit.setOnClickListener(new View.OnClickListener()
@@ -38,6 +35,13 @@ public class ResultActivity extends Activity {
             }
         });
     }
+    
+    /**
+     * Helper method that returns the color for result text.
+     * Color is either: red, green, or yellow (depending on how counter)
+     * @param counter
+     * @return
+     */
     private int getTextColor (int counter) {
         if (counter > 1000) {
             return Color.RED;
@@ -47,6 +51,10 @@ public class ResultActivity extends Activity {
         return Color.GREEN;
     }
     
+    /**
+     * Helper method to restart the application
+     * @param view
+     */
     public void startOver (View view) {
         Intent startOver = new Intent(ResultActivity.this, InputActivityOne.class);
         ResultActivity.this.startActivity(startOver);

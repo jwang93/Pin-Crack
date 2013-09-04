@@ -1,7 +1,6 @@
 package dialogs;
 
 import com.example.pincrack.R;
-import com.example.pincrack.R.string;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -10,7 +9,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.webkit.WebView.FindListener;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -32,7 +30,6 @@ public class AboutDialog extends DialogFragment {
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		// Use the Builder class for convenient dialog construction
 
 		ScrollView scrollView = (ScrollView) View.inflate(getActivity(), R.layout.scroll_view, null);
 		TextView text = (TextView) View.inflate(getActivity(), R.layout.text_view, null);
@@ -49,7 +46,6 @@ public class AboutDialog extends DialogFragment {
 								// User cancelled the dialog
 							}
 						});
-		// Create the AlertDialog object and return it
 		return builder.create();
 	}
 }

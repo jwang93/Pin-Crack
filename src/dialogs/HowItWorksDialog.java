@@ -1,7 +1,6 @@
 package dialogs;
 
 import com.example.pincrack.R;
-import com.example.pincrack.R.string;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
