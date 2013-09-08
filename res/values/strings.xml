@@ -23,6 +23,7 @@
     
     <!-- All the strings used for the DataActivity -->
     <string name="data_header">"                     PIN                             Frequency"</string>
+    <string name="data_citation">"*based on data from Data Genetics"</string>
     <string name="data_1">"  1.           1234                          10.713%"</string>
     <string name="data_2">"2.           1111                          6.016%"</string>
     <string name="data_3">"3.           0000                          1.881%"</string>
