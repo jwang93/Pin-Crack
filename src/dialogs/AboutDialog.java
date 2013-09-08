@@ -15,19 +15,18 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 public class AboutDialog extends DialogFragment {
 
-	private final String aboutString = "<br/>Is there an algorithm that can accurately guess someone’s PIN? "
-			+ "Are there are “orderings” that can accurately predict what keys someone entered? <br/><br/> "
-			+ "<b>Inspiration:</b> <br/> In college, I was at a party and there were about ten of us "
-			+ "crowded on a couch in some apartment. My friend reaches to unlock his smartphone. "
-			+ "I was sitting right next to him, as I nonchalantly watched him enter in his PIN. "
-			+ "He, like many people, was by no means trying to be discreet. We build complicated"
-			+ " passwords for our Email and Social Media accounts, yet that simple PIN has access "
-			+ "to his Email, Facebook, and Twitter. Moreover, oftentimes that PIN is linked to other "
-			+ "valuable PINs (i.e. Bank Account, Debit Card, etc). <br/> <br/>"
-			+ "<b>Premise:</b> <br/> You provide the computer with a guess of what you think the PIN is. This algorithm will"
-			+ " try to then guess the real PIN using as few tries as possible.<br/><br/> "
-			+ "<b>Version 1.0</b><br/><br/>";
-
+	private final String aboutString = "<br/>Studies show that having one universal PIN for all your " +
+			"uses is incredibly unsafe. Thus, it can be a real pain keeping track of all your PINs. " +
+			"From bank accounts to smartphones to library cards, it's really easy to get all " +
+			"your digits mixed up - and that can be really annoying.<br/><br/>" +
+			"" +
+			"Pin Crack is a secure tool that generates educated guesses as to what your PIN is. " +
+			"A user enters in a guess and assigns a confidence to each digit. Through our algorithm, " +
+			"Pin Crack takes these inputs and generates the combinations with the highest chance " +
+			"of success.<br/><br/>" +
+			"" +
+			"<b>Note: We will never store any of your data. Please use responsibly.</b><br/><br/>";
+	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 

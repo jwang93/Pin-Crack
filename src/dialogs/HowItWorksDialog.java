@@ -16,14 +16,14 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 public class HowItWorksDialog extends DialogFragment {
     
-    private final String howItWorksString = "<br/><b>Application:</b><br/> This app is a" +
-    		" fun tool to let you see (1) how hard your PIN is to crack, and (2) how good you" +
-    		" are at discreetly entering in your PIN. <br/><br/>" +
-    		"<b>Three main screens:</b><br/>" +
-    		"Screen 1: enter your PIN as you normally would around a friend who is subtly " +
-    		"glancing at what you are entering <br/>" +
-    		"Screen 2: your friend enters in what he or she thinks you entered <br/> " +
-    		"Screen 3: you get a result of how many guesses it took the computer to crack your PIN <br/> ";
+    private final String howItWorksString = "<br/><b>Steps:</b><br/>" +
+    		"1. Enter the individual digits to the guessed PIN. <br/> " +
+    		"2. Assign a confidence (1-5) to each digit. This confidence is based on your certainty of" +
+    		" the digit's correctness in value and position. <br/><br/>" +
+    		"" +
+    		"<i>Pin Crack's accuracy is heavily contingent on an honest representation of confidence. " +
+    		"The target is to have at least two digits with a confidence of 4-5. Higher confidence" +
+    		" leads to more precise guesses.</i><br/><br/> ";
     
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
