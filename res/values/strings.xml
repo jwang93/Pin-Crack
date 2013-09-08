@@ -4,11 +4,10 @@
     <string name="hello">Welcome to Pin Crack!</string>
     <string name="app_name">Pin Crack</string>
     <string name="input">Please enter your PIN</string>
-    <string name="input_two">Enter your guessed PIN</string>
+    <string name="input_two">Enter Guessed PIN</string>
     <string name="cont">Continue</string>
     <string name="submit">Submit</string>
-    <string name="view_logs">Guess Order</string>
-    <string name="result_text">Attempts to crack PIN</string>
+    <string name="result_text">CALCULATED</string>
     <string name="version">Version 1.2</string>
     <string name="start_over">Try Again</string>
     <string name="about">About</string>
@@ -19,8 +18,13 @@
     <string name="data">20 Most Popular PIN Numbers</string>
     <string name="got_it">Got It!</string>
     
-    
-    
+    <!-- Strings used for the results view -->
+    <string name="view_5_guesses">View 5 Guesses</string>
+    <string name="view_10_guesses">View 10 Guesses</string>
+    <string name="view_25_guesses">View 25 Guesses</string>
+    <string name="view_50_guesses">View 50 Guesses</string>
+    <string name="view_100_guesses">View 100 Guesses</string>
+
     <!-- All the strings used for the DataActivity -->
     <string name="data_header">"                     PIN                             Frequency"</string>
     <string name="data_citation">"*based on data from Data Genetics"</string>

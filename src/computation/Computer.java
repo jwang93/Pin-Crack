@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import android.content.Context;
+import android.util.Log;
 
 /**
  * Logic that handles PIN Guessing
@@ -35,7 +36,7 @@ public class Computer {
 	 * @param confidence
 	 * @throws IOException
 	 */
-	public static int calculate(int realPin, int guessedPin, BufferedReader reader,
+	public static void calculate(int guessedPin, BufferedReader reader,
 			Context context, int[] confidence) throws IOException {
 
 		fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
@@ -49,7 +50,7 @@ public class Computer {
 			increments[j] = getIncrement(confidence[j]);
 		}
 		
-		while (used.size() < 10000) {
+		while (used.size() < 100) {
 			increment(confidence);
 			String result = EMPTY_STRING;
 
@@ -63,14 +64,9 @@ public class Computer {
 							result += orderings.get(guessedPinDigits[3]).get(l).toString();
 							if (!used.contains(Integer.parseInt(result))) {
 								counter++;
-								if (testResult(Integer.parseInt(result), realPin)) {
-									String output = result;
-									fos.write(output.getBytes());
-									return counter;
-								} else {
-									String output = result + ",";
-									fos.write(output.toString().getBytes());
-								}
+								used.add(Integer.parseInt(result));
+								String output = result + ",";
+								fos.write(output.toString().getBytes());
 							}
 							result = result.substring(0, result.length() - 1);
 						}
@@ -82,7 +78,6 @@ public class Computer {
 			}
 		}
 		fos.close();
-		return -1;
 	}
 	
 	/**
@@ -144,18 +139,7 @@ public class Computer {
 			return 10;
 		}
 	}
-	
-	/**
-	 * Helper method that tests the computer's guess against the correct PIN
-	 */
-	private static boolean testResult(int computerGuess, int realPin) {
-		used.add(computerGuess);
-		if (realPin == computerGuess) {
-			return true;
-		}
-		return false;
-	}
-	
+		
 	/**
 	 * Helper method that returns the index of the number with lowest confidence
 	 */

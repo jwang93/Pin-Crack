@@ -13,6 +13,7 @@ import dialogs.PINValidatorDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,8 +33,6 @@ public class InputActivity extends Activity {
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_two);
-
-        final String truePin = "1111";
         
         
         final int[] confidence_array = new int[4];        
@@ -57,14 +56,12 @@ public class InputActivity extends Activity {
                     if (validationPassed(guessedPin)) {
                         inputStream = getAssets().open("orderings.txt");
                         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                        int result = Computer.calculate(Integer.parseInt(truePin),
-                                                 Integer.parseInt(guessedPin), reader,
-                                                 getApplicationContext(),
-                                                 confidence_array);
-
+						Computer.calculate(Integer.parseInt(guessedPin),
+								reader, getApplicationContext(),
+								confidence_array);
+						Log.i("TAG", "Got here...");
                         Intent resultIntent =
                                 new Intent(InputActivity.this, ResultActivity.class);
-                        resultIntent.putExtra("counter", result);
                         InputActivity.this.startActivity(resultIntent);
                         finish();
                     }

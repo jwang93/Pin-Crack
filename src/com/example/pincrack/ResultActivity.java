@@ -13,27 +13,26 @@ import android.widget.TextView;
 public class ResultActivity extends Activity {
     /** Called when the activity is first created. */
     int counter;
+    Intent viewLogs;
+
     @Override
     public void onCreate (Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
-        Bundle intentInfo = getIntent().getExtras();
-        counter = intentInfo.getInt("counter");
+        viewLogs = new Intent(ResultActivity.this, ViewLogsActivity.class);
         
-        TextView resultView = (TextView) findViewById(R.id.result_number);
-        resultView.setText(String.valueOf(counter));
-        resultView.setTextColor(getTextColor(counter));
+
         
-        Button submit = (Button) findViewById(R.id.button4);
-        submit.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick (View v)
-            {
-                Intent viewLogs = new Intent(ResultActivity.this, ViewLogsActivity.class);
-                ResultActivity.this.startActivity(viewLogs);
-            }
-        });
+//        Button submit = (Button) findViewById(R.id.button4);
+//        submit.setOnClickListener(new View.OnClickListener()
+//        {
+//            public void onClick (View v)
+//            {
+//                Intent viewLogs = new Intent(ResultActivity.this, ViewLogsActivity.class);
+//                ResultActivity.this.startActivity(viewLogs);
+//            }
+//        });
     }
     
     /**
@@ -56,8 +55,33 @@ public class ResultActivity extends Activity {
      * @param view
      */
     public void startOver (View view) {
-        Intent startOver = new Intent(ResultActivity.this, InputActivityOne.class);
+        Intent startOver = new Intent(ResultActivity.this, InputActivity.class);
         ResultActivity.this.startActivity(startOver);
         finish();
+    }
+    
+    public void view5 (View view) {
+    	viewLogs.putExtra("size", 5);
+        ResultActivity.this.startActivity(viewLogs);
+    }
+    
+    public void view10 (View view) {
+    	viewLogs.putExtra("size", 10);
+        ResultActivity.this.startActivity(viewLogs);
+    }
+    
+    public void view25 (View view) {
+    	viewLogs.putExtra("size", 25);
+        ResultActivity.this.startActivity(viewLogs);
+    }
+    
+    public void view50 (View view) {
+    	viewLogs.putExtra("size", 50);
+        ResultActivity.this.startActivity(viewLogs);
+    }
+    
+    public void view100 (View view) {
+    	viewLogs.putExtra("size", 100);
+        ResultActivity.this.startActivity(viewLogs);
     }
 }

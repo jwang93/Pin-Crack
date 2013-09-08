@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+
 import com.example.pincrack.R;
 import android.app.Activity;
 import android.os.Bundle;
@@ -21,8 +23,11 @@ public class ViewLogsActivity extends Activity {
         setContentView(R.layout.view_logs);
         ListView view = (ListView) findViewById(R.id.scrolling_view);
         
+        Bundle intentInfo = getIntent().getExtras();
+        int size = intentInfo.getInt("size");
+        
         @SuppressWarnings({ "rawtypes", "unchecked" })
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.logs_list_view, R.id.list_content, processResults());
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.logs_list_view, R.id.list_content, processResults(size));
         view.setAdapter(adapter);
     }
     
@@ -31,7 +36,7 @@ public class ViewLogsActivity extends Activity {
      * Returns a string[] of the guesses for the adapter.
      * @return
      */
-    private String[] processResults() {
+    private String[] processResults(int size) {
         FileInputStream fos;
         BufferedReader reader;
         String data = null;
@@ -56,7 +61,6 @@ public class ViewLogsActivity extends Activity {
         catch (IOException e) {
             e.printStackTrace();
         }
-        
-        return data.split(",");
+        return Arrays.copyOf(data.split(","), size);
     }
 }

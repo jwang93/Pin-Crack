@@ -7,29 +7,59 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="50dp"
+        android:drawableBottom="@drawable/logo_no_bg"
+        android:drawablePadding="15dp"
         android:gravity="center"
+        android:textColor="@color/GreenYellow"
         android:text="@string/result_text"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/result_number"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawableBottom="@drawable/logo_no_bg"
-        android:gravity="center"
-        android:paddingBottom="30dp"
-        android:drawablePadding="20dp"
-        android:paddingTop="15dp"
-        android:textSize="60sp" />
-
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/view_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="10dp"
-        android:onClick="start"
-        android:text="@string/view_logs" />
+        android:onClick="view5"
+        android:text="@string/view_5_guesses" />
+
+    <Button
+        android:id="@+id/view_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:onClick="view10"
+        android:text="@string/view_10_guesses" />
+
+    <Button
+        android:id="@+id/view_25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:onClick="view25"
+        android:text="@string/view_25_guesses" />
+
+    <Button
+        android:id="@+id/view_50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:onClick="view50"
+        android:text="@string/view_50_guesses" />
+
+    <Button
+        android:id="@+id/view_100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:onClick="view100"
+        android:text="@string/view_100_guesses" />
 
     <Button
         android:id="@+id/button_home"
