@@ -89,13 +89,15 @@ public class InputActivity extends Activity {
      * Helper method that handles the confidence for each digit of the user-guessed PIN
      */
     private void setConfidence(List<Digit> digits, final int[] confidence_array) {
-        for (final Digit digit : digits) {
+        for (int i = 0; i < digits.size(); i++) {
+        	final Digit digit = digits.get(i);
+        	final int index = i;
         	digit.getTextView().setText("Confidence: 0");
             digit.getSeekBar().setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             	 
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                     digit.getTextView().setText("Confidence: " + progress);
-                    confidence_array[0] = progress;
+                    confidence_array[index] = progress;
                 }
 
     			@Override
