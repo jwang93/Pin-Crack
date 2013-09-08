@@ -16,5 +16,7 @@
     <string name="back">Back</string>
     <string name="how_dialog">How It Works</string>
     <string name="invalid_pin">Invalid PIN</string>
+    <string name="data">20 Most Popular PIN Numbers</string>
+    <string name="got_it">Got It!</string>
     	
 </resources>

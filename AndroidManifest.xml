@@ -24,7 +24,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="InputActivityTwo"
+            android:name="DataActivity"
+            android:label="@string/app_name" >
+        </activity>        
+        <activity
+            android:name="InputActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

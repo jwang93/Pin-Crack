@@ -26,15 +26,15 @@ import android.widget.TextView;
  * 
  * @author Jay Wang
  */
-public class InputActivityTwo extends Activity {
+public class InputActivity extends Activity {
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_two);
 
-        Bundle intentInfo = getIntent().getExtras();
-        final String truePin = intentInfo.getString("realPin");
+        final String truePin = "1111";
+        
         
         final int[] confidence_array = new int[4];        
         final Digit digit1 = new Digit((EditText) findViewById(R.id.phone_dialer1), (SeekBar) findViewById(R.id.seek1), (TextView) findViewById(R.id.confidence_text1));
@@ -63,9 +63,9 @@ public class InputActivityTwo extends Activity {
                                                  confidence_array);
 
                         Intent resultIntent =
-                                new Intent(InputActivityTwo.this, ResultActivity.class);
+                                new Intent(InputActivity.this, ResultActivity.class);
                         resultIntent.putExtra("counter", result);
-                        InputActivityTwo.this.startActivity(resultIntent);
+                        InputActivity.this.startActivity(resultIntent);
                         finish();
                     }
                     else {

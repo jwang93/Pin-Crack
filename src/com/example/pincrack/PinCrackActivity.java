@@ -19,7 +19,7 @@ public class PinCrackActivity extends Activity {
     }
 
     public void start (View view) {
-        Intent inputIntent = new Intent(PinCrackActivity.this, InputActivityOne.class);
+        Intent inputIntent = new Intent(PinCrackActivity.this, DataActivity.class);
         this.startActivity(inputIntent);
         finish();
     }

@@ -25,7 +25,7 @@ public class InputActivityOne extends Activity {
             public void onClick (View v)
             {
                 if (validationPassed(pin.getText().toString())) {
-                    Intent inputIntent = new Intent(InputActivityOne.this, InputActivityTwo.class);
+                    Intent inputIntent = new Intent(InputActivityOne.this, InputActivity.class);
                     inputIntent.putExtra("realPin", pin.getText().toString());
                     InputActivityOne.this.startActivity(inputIntent);
                     finish();
