@@ -18,5 +18,30 @@
     <string name="invalid_pin">Invalid PIN</string>
     <string name="data">20 Most Popular PIN Numbers</string>
     <string name="got_it">Got It!</string>
-    	
+    
+    
+    
+    <!-- All the strings used for the DataActivity -->
+    <string name="data_header">"                     PIN                             Frequency"</string>
+    <string name="data_1">"  1.           1234                          10.713%"</string>
+    <string name="data_2">"2.           1111                          6.016%"</string>
+    <string name="data_3">"3.           0000                          1.881%"</string>
+    <string name="data_4">"4.           1212                          1.197%"</string>
+    <string name="data_5">"5.           7777                          0.745%"</string>
+    <string name="data_6">"6.           1004                          0.616%"</string>
+    <string name="data_7">"7.           2000                          0.613%"</string>
+    <string name="data_8">"8.           4444                          0.526%"</string>
+    <string name="data_9">"9.           2222                          0.516%"</string>
+    <string name="data_10">"10.         6969                          0.512%"</string>
+    <string name="data_11">"11.         9999                          0.451%"</string>
+    <string name="data_12">"12.         3333                          0.419%"</string>
+    <string name="data_13">"13.         5555                          0.395%"</string>
+    <string name="data_14">"14.         6666                          0.391%"</string>
+    <string name="data_15">"15.         1122                          0.366%"</string>
+    <string name="data_16">"16.         1313                          0.304%"</string>
+    <string name="data_17">"17.         8888                          0.303%"</string>
+    <string name="data_18">"18.         4321                          0.293%"</string>
+    <string name="data_19">"19.         2001                          0.290%"</string>
+    <string name="data_20">"20.         1010                          0.285%"</string>
+
 </resources>

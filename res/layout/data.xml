@@ -24,141 +24,142 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="               PIN                            Frequency"
+            android:text="@string/data_header"
             android:textSize="14sp"
+            android:textColor="@color/Gold"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text=" 1.           1234                          10.713%"
+            android:text="@string/data_1"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="2.           1111                          6.016%"
+            android:text="@string/data_2"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="3.           0000                          1.881%"
+            android:text="@string/data_3"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="4.           1212                          1.197%"
+            android:text="@string/data_4"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="5.           7777                          0.745%"
+            android:text="@string/data_5"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="6.           1004                          0.616%"
+            android:text="@string/data_6"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="7.           2000                          0.613%"
+            android:text="@string/data_7"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="8.           4444                          0.526%"
+            android:text="@string/data_8"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="9.           2222                          0.516%"
+            android:text="@string/data_9"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="10.         6969                          0.512%"
+            android:text="@string/data_10"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="11.         9999                          0.451%"
+            android:text="@string/data_11"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="12.         3333                          0.419%"
+            android:text="@string/data_12"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="13.         5555                          0.395%"
+            android:text="@string/data_13"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="14.         6666                          0.391%"
+            android:text="@string/data_14"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="15.         1122                          0.366%"
+            android:text="@string/data_15"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="16.         1313                          0.304%"
+            android:text="@string/data_16"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="17.         8888                          0.303%"
+            android:text="@string/data_17"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="18.         4321                          0.293%"
+            android:text="@string/data_18"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="19.         2001                          0.290%"
+            android:text="@string/data_19"
             android:textSize="14sp" />
 
         <TextView
@@ -167,7 +168,7 @@
             android:drawableBottom="@drawable/logo_no_bg"
             android:drawablePadding="15dp"
             android:gravity="center"
-            android:text="20.         1010                          0.285%"
+            android:text="@string/data_20"
             android:textSize="14sp" />
 
         <Button
