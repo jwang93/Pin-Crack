@@ -11,7 +11,7 @@
         android:gravity="center"
         android:paddingBottom="15dp"
         android:text="@string/input_two"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -28,7 +28,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -70,7 +70,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -112,7 +112,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -154,7 +154,7 @@
             android:inputType="phone"
             android:maxLength="1"
             android:paddingBottom="20dp"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"

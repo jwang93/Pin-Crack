@@ -1,6 +1,6 @@
-package com.example.pincrack;
+package pincrack;
 
-import com.example.pincrack.R;
+import com.pincrack.R;
 import dialogs.AboutDialog;
 import dialogs.HowItWorksDialog;
 import android.app.Activity;

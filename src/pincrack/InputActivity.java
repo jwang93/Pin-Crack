@@ -1,4 +1,4 @@
-package com.example.pincrack;
+package pincrack;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import computation.Computer;
 import computation.Digit;
-import com.example.pincrack.R;
+import com.pincrack.R;
 import dialogs.PINValidatorDialog;
 import android.app.Activity;
 import android.content.Intent;

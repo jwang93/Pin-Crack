@@ -10,7 +10,7 @@ import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
-import com.example.pincrack.R;
+import com.pincrack.R;
 
 @SuppressLint("NewApi")
 public class PINValidatorDialog extends DialogFragment {

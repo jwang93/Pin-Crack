@@ -1,6 +1,6 @@
 package dialogs;
 
-import com.example.pincrack.R;
+import com.pincrack.R;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -18,7 +18,7 @@ public class HowItWorksDialog extends DialogFragment {
     
     private final String howItWorksString = "<br/><b>Steps:</b><br/>" +
     		"1. Enter the individual digits to the guessed PIN. <br/> " +
-    		"2. Assign a confidence (1-5) to each digit. This confidence is based on your certainty of" +
+    		"2. Assign a confidence (1-5) to each digit. This confidence is based on the certainty of" +
     		" the digit's correctness in value and position. <br/><br/>" +
     		"" +
     		"<i>Pin Crack's accuracy is heavily contingent on an honest representation of confidence. " +

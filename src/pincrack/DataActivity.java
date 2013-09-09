@@ -1,4 +1,6 @@
-package com.example.pincrack;
+package pincrack;
+
+import com.pincrack.R;
 
 import android.app.Activity;
 import android.content.Intent;
