@@ -31,16 +31,6 @@ public class ResultActivity extends Activity {
         finish();
     }
     
-    public void view5 (View view) {
-    	viewLogs.putExtra("size", 5);
-        ResultActivity.this.startActivity(viewLogs);
-    }
-    
-    public void view10 (View view) {
-    	viewLogs.putExtra("size", 10);
-        ResultActivity.this.startActivity(viewLogs);
-    }
-    
     public void view25 (View view) {
     	viewLogs.putExtra("size", 25);
         ResultActivity.this.startActivity(viewLogs);
