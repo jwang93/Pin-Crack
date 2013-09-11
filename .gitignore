@@ -29,5 +29,8 @@ proguard/
 *.iws
 .idea/
 
+# Random text files
+/src/resources
+
 .settings
 .DS_Store
