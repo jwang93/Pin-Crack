@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 /**
  * This class encapsulates the logic used to process a digit entered 
- * in InputActivityTwo. 
+ * in the input activity. 
  *
  */
 public class Digit {

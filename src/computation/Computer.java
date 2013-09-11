@@ -9,7 +9,9 @@ import java.util.Set;
 import android.content.Context;
 
 /**
- * Logic that handles PIN Guessing
+ * Logic that handles PIN Guessing.
+ * All algorithmic modifications should be made here. 
+ * 
  * @author Jay Wang
  */
 

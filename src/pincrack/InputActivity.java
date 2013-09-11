@@ -32,7 +32,7 @@ public class InputActivity extends Activity {
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.input_two);
+        setContentView(R.layout.input);
         
         
         final int[] confidence_array = new int[4];        
@@ -40,7 +40,7 @@ public class InputActivity extends Activity {
         final Digit digit2 = new Digit((EditText) findViewById(R.id.phone_dialer2), (SeekBar) findViewById(R.id.seek2), (TextView) findViewById(R.id.confidence_text2));
         final Digit digit3 = new Digit((EditText) findViewById(R.id.phone_dialer3), (SeekBar) findViewById(R.id.seek3), (TextView) findViewById(R.id.confidence_text3));
         final Digit digit4 = new Digit((EditText) findViewById(R.id.phone_dialer4), (SeekBar) findViewById(R.id.seek4), (TextView) findViewById(R.id.confidence_text4));
-        final List<Digit> digits = Arrays.asList(digit1, digit2, digit3, digit4);
+        final List<Digit> 	digits = Arrays.asList(digit1, digit2, digit3, digit4);
         
         setConfidence(digits, confidence_array);
         
