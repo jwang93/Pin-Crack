@@ -148,7 +148,7 @@ public class Computer {
 	/**
 	 * Helper method that returns the appropriate increment based on user confidence
 	 */
-	private static int getIncrement(int confidence) {
+	public static int getIncrement(int confidence) {
 		switch (confidence) {
 		case 5:
 			return 1;
