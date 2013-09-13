@@ -201,7 +201,7 @@ public class Computer {
 	 * @param confidence
 	 * @return 
 	 */
-	private static int[] sortPositions(int[] confidence) {
+	public static int[] sortPositions(int[] confidence) {
 		int[] ret = new int[4];
 						
 		List<Confidence> list = new ArrayList<Confidence>();
