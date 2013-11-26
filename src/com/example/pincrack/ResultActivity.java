@@ -44,11 +44,11 @@ public class ResultActivity extends Activity {
      */
     private int getTextColor (int counter) {
         if (counter > 1000) {
-            return Color.RED;
+            return Color.GREEN;
         } else if (counter > 100) {
             return Color.YELLOW;
         }
-        return Color.GREEN;
+        return Color.RED;
     }
     
     /**

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Welcome to Pin Crack!</string>
+    <string name="hello">Shoulder Surfer</string>
+    <string name="spoue_attack">Unleashing the Spouse Attack</string>
     <string name="app_name">Pin Crack</string>
     <string name="input">Please enter your PIN</string>
     <string name="input_two">Enter your guessed PIN</string>

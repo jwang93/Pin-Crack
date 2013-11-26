@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import android.content.Context;
-import android.util.Log;
 
 /**
  * Logic that handles PIN Guessing. All algorithmic modifications should be made
