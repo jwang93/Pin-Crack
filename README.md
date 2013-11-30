@@ -40,7 +40,8 @@ Perform three rounds of this operation.
 4. I record the guess count 
 
 
-I will shuffle between 10 PINs: 
+I will shuffle between 10 PINs 
+
 1. 1234 
 2. 5555
 3. 2001
