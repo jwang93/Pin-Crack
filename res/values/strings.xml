@@ -3,7 +3,7 @@
 
     <string name="hello">Shoulder Surfer</string>
     <string name="spoue_attack">Unleashing the Spouse Attack</string>
-    <string name="app_name">Pin Crack</string>
+    <string name="app_name">Shoulder Surf</string>
     <string name="input">Please enter your PIN</string>
     <string name="input_two">Enter your guessed PIN</string>
     <string name="cont">Continue</string>
@@ -13,7 +13,7 @@
     <string name="version">Version 1.2</string>
     <string name="start_over">Try Again</string>
     <string name="about">About</string>
-    <string name="about_dialog">About The Pin Crack Project</string>
+    <string name="about_dialog">About Shoulder Surfer</string>
     <string name="back">Back</string>
     <string name="how_dialog">How It Works</string>
     <string name="invalid_pin">Invalid PIN</string>

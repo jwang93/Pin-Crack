@@ -15,15 +15,17 @@ import android.widget.TextView;
 
 @SuppressLint("NewApi")
 public class HowItWorksDialog extends DialogFragment {
-    
-    private final String howItWorksString = "<br/><b>Application:</b><br/> This app is a" +
-    		" fun tool to let you see (1) how hard your PIN is to crack, and (2) how good you" +
-    		" are at discreetly entering in your PIN. <br/><br/>" +
-    		"<b>Three main screens:</b><br/>" +
-    		"Screen 1: enter your PIN as you normally would around a friend who is subtly " +
-    		"glancing at what you are entering <br/>" +
-    		"Screen 2: your friend enters in what he or she thinks you entered <br/> " +
-    		"Screen 3: you get a result of how many guesses it took the computer to crack your PIN <br/> ";
+        
+    private final String howItWorksString = "<br/> <b> Step 1</b>: User A enters in his PIN as he normally would, while " 
+    		+ "User B watches. <br/> <b> Step 2</b> : User B enters in a guess of User AÕs PIN, assigning a confidence " 
+    		+ "level (number from 1- 5) to each digit. <br/> <b> Step 3</b>: The Pin Crack algorithm will calculate the fewest number of " 
+    		+ "guesses it would take a computer to guess User AÕs PIN based on User BÕs guess.<br/> <br/> The " 
+    		+ "accuracy of the guessing algorithm is heavily contingent on an honest representation " 
+    		+ "of confidence. Ideally, the target is to have at least two digits with a confidence of "
+    		+ "4-5. Higher confidence leads to a lower number of guesses. <br/><br/> For guesses < 100, output "
+    		+ "will be red for dangerous. <br/> For 100 < guesses < 1000, output will be yellow for warning. "
+    		+ "<br/> For guesses > 1000, output will be green for secure. <br/>";
+		
     
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
