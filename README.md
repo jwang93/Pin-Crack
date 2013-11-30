@@ -1,10 +1,3 @@
-pinCrack_android
-================
-
-Android App Pin Crack
-
-
-
 ##Shoulder Surfer##
 
 ##### About 
