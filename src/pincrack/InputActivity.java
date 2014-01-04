@@ -63,7 +63,6 @@ public class InputActivity extends Activity {
                         Intent resultIntent =
                                 new Intent(InputActivity.this, ResultActivity.class);
                         InputActivity.this.startActivity(resultIntent);
-                        finish();
                     }
                     else {
                         PINValidatorDialog dialog = new PINValidatorDialog();

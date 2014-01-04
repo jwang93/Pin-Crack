@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="PinCrack" parent="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth">
+    <style name="PinCrack" parent="@android:style/Theme.Holo.NoActionBar">
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
         <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>

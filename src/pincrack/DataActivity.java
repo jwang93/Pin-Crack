@@ -1,10 +1,14 @@
 package pincrack;
 
+import java.lang.reflect.Method;
+
 import com.pincrack.R;
 
+import altCntrl.altCntrlActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -13,17 +17,23 @@ import android.view.View;
  * 
  * @author Jay Wang
  */
-public class DataActivity extends Activity {
+public class DataActivity extends altCntrlActivity {
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data);
+
+        /* Configuration for altCntrl*/
+        try {
+        	Method[] methods = new Method[4];
+			methods[0] = this.getClass().getMethod("cont", View.class);
+			super.altCntrlSetUp(methods, this, findViewById(R.layout.data));
+		} catch (NoSuchMethodException e) {}
     }
     
     public void cont (View view) {
         Intent inputIntent = new Intent(DataActivity.this, InputActivity.class);
         this.startActivity(inputIntent);
-        finish();
     }
 }
