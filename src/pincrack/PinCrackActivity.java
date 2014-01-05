@@ -22,9 +22,12 @@ public class PinCrackActivity extends altCntrlActivity {
         /* Configuration for altCntrl*/
         try {
         	Method[] methods = new Method[4];
+        	Object[] objects = new Object[4];
         	methods[0] = this.getClass().getMethod("start", View.class);
+        	objects[0] = this;
         	methods[1] = this.getClass().getMethod("finish", View.class);
-			super.altCntrlSetUp(methods, this, findViewById(R.layout.main));
+        	objects[1] = this;
+			super.altCntrlSetUp(methods, objects, findViewById(R.layout.main));
 		} catch (NoSuchMethodException e) {}
 
     }

@@ -27,9 +27,12 @@ public class DataActivity extends altCntrlActivity {
         /* Configuration for altCntrl*/
         try {
         	Method[] methods = new Method[4];
+        	Object[] objects = new Object[4];
 			methods[0] = this.getClass().getMethod("cont", View.class);
+        	objects[0] = this;
 			methods[1] = this.getClass().getMethod("finish", View.class);
-			super.altCntrlSetUp(methods, this, findViewById(R.layout.data));
+        	objects[1] = this;
+			super.altCntrlSetUp(methods, objects, findViewById(R.layout.data));
 		} catch (NoSuchMethodException e) {}
     }
     

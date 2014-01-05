@@ -25,11 +25,16 @@ public class ResultActivity extends altCntrlActivity {
         /* Configuration for altCntrl*/
         try {
         	Method[] methods = new Method[4];
+        	Object[] objects = new Object[4];
         	methods[0] = this.getClass().getMethod("startOver", View.class);
+        	objects[0] = this;
         	methods[1] = this.getClass().getMethod("view25", View.class);
+        	objects[1] = this;
         	methods[2] = this.getClass().getMethod("View50", View.class);
+        	objects[2] = this;
         	methods[3] = this.getClass().getMethod("view100", View.class);
-			super.altCntrlSetUp(methods, this, findViewById(R.layout.main));
+        	objects[3] = this;
+			super.altCntrlSetUp(methods, objects, findViewById(R.layout.result));
 		} catch (NoSuchMethodException e) {}
         
     }

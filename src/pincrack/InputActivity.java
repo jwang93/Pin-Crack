@@ -83,9 +83,12 @@ public class InputActivity extends altCntrlActivity {
         /* Configuration for altCntrl*/
         try {
         	Method[] methods = new Method[4];
+        	Object[] objects = new Object[4];
 			methods[0] = listener.getClass().getMethod("onClick", View.class);
+        	objects[0] = listener;
 			methods[1] = this.getClass().getMethod("finish", View.class);
-			super.altCntrlSetUp(methods, this, findViewById(R.layout.input));
+        	objects[1] = this;
+			super.altCntrlSetUp(methods, objects, findViewById(R.layout.input));
 		} catch (NoSuchMethodException e) {}
     }
 
