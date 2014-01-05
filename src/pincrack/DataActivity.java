@@ -28,9 +28,15 @@ public class DataActivity extends altCntrlActivity {
         try {
         	Method[] methods = new Method[4];
 			methods[0] = this.getClass().getMethod("cont", View.class);
+			methods[1] = this.getClass().getMethod("finish", View.class);
 			super.altCntrlSetUp(methods, this, findViewById(R.layout.data));
 		} catch (NoSuchMethodException e) {}
     }
+    
+    public void finish(View view) {
+    	finish();
+    }
+    
     
     public void cont (View view) {
         Intent inputIntent = new Intent(DataActivity.this, InputActivity.class);

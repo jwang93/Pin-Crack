@@ -4,17 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import computation.Computer;
 import computation.Digit;
 import com.pincrack.R;
 import dialogs.PINValidatorDialog;
+import altCntrl.altCntrlActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -27,7 +30,7 @@ import android.widget.TextView;
  * 
  * @author Jay Wang
  */
-public class InputActivity extends Activity {
+public class InputActivity extends altCntrlActivity {
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
@@ -45,7 +48,7 @@ public class InputActivity extends Activity {
         setConfidence(digits, confidence_array);
         
         Button submit = (Button) findViewById(R.id.button3);
-        submit.setOnClickListener(new View.OnClickListener()
+        OnClickListener listener = (new View.OnClickListener()
         {
             public void onClick (View v)
             {
@@ -74,8 +77,23 @@ public class InputActivity extends Activity {
                 }
             }
         });
+        
+        submit.setOnClickListener(listener);
+        
+        /* Configuration for altCntrl*/
+        try {
+        	Method[] methods = new Method[4];
+			methods[0] = listener.getClass().getMethod("onClick", View.class);
+			methods[1] = this.getClass().getMethod("finish", View.class);
+			super.altCntrlSetUp(methods, this, findViewById(R.layout.input));
+		} catch (NoSuchMethodException e) {}
     }
 
+    
+    public void finish(View view) {
+    	finish();
+    }
+    
     /**
      * Helper method used to validate the PIN is 4 digits long
      */

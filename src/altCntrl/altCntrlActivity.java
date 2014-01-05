@@ -27,9 +27,6 @@ public abstract class altCntrlActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		sManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		pitch = 0.0;
-		sManager.registerListener(this,
-				sManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-				SensorManager.SENSOR_DELAY_FASTEST);
 	}
 	
 	public void altCntrlSetUp(Method[] methods, Activity activity, View view) {
@@ -38,6 +35,17 @@ public abstract class altCntrlActivity extends Activity implements
 		this.view = view;
 	}
 
+	public void onResume() {
+		super.onResume();
+		sManager.registerListener(this,
+				sManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+				SensorManager.SENSOR_DELAY_FASTEST);
+	}
+	
+	public void onPause() {
+		super.onPause();
+		sManager.unregisterListener(this);
+	}
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -62,6 +70,7 @@ public abstract class altCntrlActivity extends Activity implements
 		if (pitch > 30.0) {
 			Log.i("Called. Pitch: ", Float.toString(event.values[1]));
 			event.values[1] = 0;
+			Log.e("Error Tag: ", methods[0].getName());
 			performAction(methods[0]);
 		} else if (pitch < -30.0) {
 			event.values[1] = 0;

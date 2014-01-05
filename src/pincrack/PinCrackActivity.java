@@ -23,13 +23,16 @@ public class PinCrackActivity extends altCntrlActivity {
         try {
         	Method[] methods = new Method[4];
         	methods[0] = this.getClass().getMethod("start", View.class);
-        	methods[1] = this.getClass().getMethod("startAbout", View.class);
-        	methods[2] = this.getClass().getMethod("startHowItWorks", View.class);
+        	methods[1] = this.getClass().getMethod("finish", View.class);
 			super.altCntrlSetUp(methods, this, findViewById(R.layout.main));
 		} catch (NoSuchMethodException e) {}
 
     }
 
+    public void finish(View view) {
+    	finish();
+    }
+    
     public void start (View view) {
         Intent inputIntent = new Intent(PinCrackActivity.this, DataActivity.class);
         this.startActivity(inputIntent);
