@@ -13,7 +13,8 @@ import android.view.View;
 public abstract class altCntrlActivity extends Activity implements
 		SensorEventListener {
 
-	private double[] thresholds = {30.0, -30.0};
+	private double[] THRESHOLDS = {30.0, -30.0};
+	private double NOISE = 5.0;
 	public SensorManager sManager;
 	private boolean on = false;
 	private Method[] methods;
@@ -59,14 +60,14 @@ public abstract class altCntrlActivity extends Activity implements
 		
 		pitch = event.values[1];
 	
-		if (Math.abs(event.values[1]) < 5.0) {
+		if (Math.abs(event.values[1]) < NOISE) {
 			on = true;
 		}
 					
-		if (pitch > thresholds[0]) {
+		if (pitch > THRESHOLDS[0]) {
 			event.values[1] = 0;
 			performAction(methods[0], objects[0]);
-		} else if (pitch < thresholds[1]) {
+		} else if (pitch < THRESHOLDS[1]) {
 			event.values[1] = 0;
 			performAction(methods[1], objects[1]);
 		}
@@ -90,5 +91,4 @@ public abstract class altCntrlActivity extends Activity implements
 			}
 		}
 	}
-
 }
