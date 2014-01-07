@@ -10,19 +10,16 @@ import android.text.Html;
 import android.view.Gravity;
 import android.widget.TextView;
 
-
 @SuppressLint("ValidFragment")
 public class StatusDialog extends DialogFragment {
 
 	private String status;
 	private String statusString;
-	
-	
-	public StatusDialog (boolean status) {
-			this.status = status ? "ON" : "OFF";
-			statusString = "<br/>altCntrl has been turned " + this.status + "<br/>";
+
+	public StatusDialog(boolean status) {
+		this.status = status ? "ON" : "OFF";
+		statusString = "<br/>altCntrl has been turned " + this.status + "<br/>";
 	}
-	
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
