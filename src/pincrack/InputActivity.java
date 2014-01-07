@@ -12,7 +12,6 @@ import computation.Digit;
 import com.pincrack.R;
 import dialogs.PINValidatorDialog;
 import altCntrl.altCntrlActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
