@@ -2,6 +2,7 @@ package altCntrl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -23,9 +24,10 @@ public abstract class altCntrlActivity extends Activity implements
 	private View view;
 	public double pitch = 0.0, roll = 0.0;
 	private static boolean altCntrl = false;
-	private float mAccel; // acceleration apart from gravity
-	private float mAccelCurrent; // current acceleration including gravity
-	private float mAccelLast; // last acceleration including gravity
+	private float mAccel;
+	private float mAccelCurrent;
+	private float mAccelLast;
+	private long lastCheckedTime;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +35,9 @@ public abstract class altCntrlActivity extends Activity implements
 		mAccel = 0.00f;
 		mAccelCurrent = SensorManager.GRAVITY_EARTH;
 		mAccelLast = SensorManager.GRAVITY_EARTH;
+		Log.i("altCntrl value: ", "" + altCntrl);
+		lastCheckedTime = System.currentTimeMillis();
+
 	}
 
 	public void altCntrlSetUp(Method[] methods, Object[] objects, View view) {
@@ -76,10 +81,11 @@ public abstract class altCntrlActivity extends Activity implements
 		roll = event.values[0];
 		pitch = event.values[1];
 
-		
-		if (Math.abs(mAccel) > 300.0) {
-			Log.i("Broke through: ", "" + mAccel);
-			altCntrl = true;
+		if (Math.abs(mAccel) > 200.0 && timeElapsed() > 2) {
+			altCntrl = !altCntrl;
+			lastCheckedTime = System.currentTimeMillis();
+			StatusDialog dialog = altCntrl ? new StatusDialog(true) : new StatusDialog(false);
+			dialog.show(getFragmentManager(), "Status Dialog");
 		}
 
 		if (!altCntrl)
@@ -97,6 +103,11 @@ public abstract class altCntrlActivity extends Activity implements
 			performAction(methods[1], objects[1]);
 		}
 
+	}
+
+	// return the timeElapsed in seconds from current time to last checked time
+	private int timeElapsed() {
+		return (int) (long) (System.currentTimeMillis() - lastCheckedTime) / (1000);
 	}
 
 	public void performAction(Method action, Object object) {
